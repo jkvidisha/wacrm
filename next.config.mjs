@@ -1,11 +1,20 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 
-// next-intl का प्लगइन जोड़ें
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     basePath: '/wacrm',
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/wacrm',
+                basePath: false,
+                permanent: true,
+            },
+        ];
+    },
     typescript: {
         ignoreBuildErrors: true,
     },
