@@ -5,16 +5,7 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     basePath: '/wacrm',
-    async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/wacrm',
-                basePath: false,
-                permanent: true,
-            },
-        ];
-    },
+    assetPrefix: '/wacrm',
     typescript: {
         ignoreBuildErrors: true,
     },
